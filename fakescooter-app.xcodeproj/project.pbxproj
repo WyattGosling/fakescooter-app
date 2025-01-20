@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		AD936A192D3DCF2500D30528 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD936A002D3DCF2400D30528 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD936A072D3DCF2400D30528;
+			remoteInfo = "fakescooter-app";
+		};
+		AD936A232D3DCF2500D30528 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD936A002D3DCF2400D30528 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD936A072D3DCF2400D30528;
+			remoteInfo = "fakescooter-app";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AD936A082D3DCF2400D30528 /* fakescooter-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fakescooter-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD936A182D3DCF2500D30528 /* fakescooter-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fakescooter-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD936A222D3DCF2500D30528 /* fakescooter-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fakescooter-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		AD936A0A2D3DCF2400D30528 /* fakescooter-app */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "fakescooter-app";
+			sourceTree = "<group>";
+		};
+		AD936A1B2D3DCF2500D30528 /* fakescooter-appTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "fakescooter-appTests";
+			sourceTree = "<group>";
+		};
+		AD936A252D3DCF2500D30528 /* fakescooter-appUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "fakescooter-appUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AD936A052D3DCF2400D30528 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD936A152D3DCF2500D30528 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD936A1F2D3DCF2500D30528 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AD9369FF2D3DCF2400D30528 = {
+			isa = PBXGroup;
+			children = (
+				AD936A0A2D3DCF2400D30528 /* fakescooter-app */,
+				AD936A1B2D3DCF2500D30528 /* fakescooter-appTests */,
+				AD936A252D3DCF2500D30528 /* fakescooter-appUITests */,
+				AD936A092D3DCF2400D30528 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AD936A092D3DCF2400D30528 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AD936A082D3DCF2400D30528 /* fakescooter-app.app */,
+				AD936A182D3DCF2500D30528 /* fakescooter-appTests.xctest */,
+				AD936A222D3DCF2500D30528 /* fakescooter-appUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AD936A072D3DCF2400D30528 /* fakescooter-app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD936A2C2D3DCF2500D30528 /* Build configuration list for PBXNativeTarget "fakescooter-app" */;
+			buildPhases = (
+				AD936A042D3DCF2400D30528 /* Sources */,
+				AD936A052D3DCF2400D30528 /* Frameworks */,
+				AD936A062D3DCF2400D30528 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AD936A0A2D3DCF2400D30528 /* fakescooter-app */,
+			);
+			name = "fakescooter-app";
+			packageProductDependencies = (
+			);
+			productName = "fakescooter-app";
+			productReference = AD936A082D3DCF2400D30528 /* fakescooter-app.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AD936A172D3DCF2500D30528 /* fakescooter-appTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD936A2F2D3DCF2500D30528 /* Build configuration list for PBXNativeTarget "fakescooter-appTests" */;
+			buildPhases = (
+				AD936A142D3DCF2500D30528 /* Sources */,
+				AD936A152D3DCF2500D30528 /* Frameworks */,
+				AD936A162D3DCF2500D30528 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD936A1A2D3DCF2500D30528 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				AD936A1B2D3DCF2500D30528 /* fakescooter-appTests */,
+			);
+			name = "fakescooter-appTests";
+			packageProductDependencies = (
+			);
+			productName = "fakescooter-appTests";
+			productReference = AD936A182D3DCF2500D30528 /* fakescooter-appTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AD936A212D3DCF2500D30528 /* fakescooter-appUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD936A322D3DCF2500D30528 /* Build configuration list for PBXNativeTarget "fakescooter-appUITests" */;
+			buildPhases = (
+				AD936A1E2D3DCF2500D30528 /* Sources */,
+				AD936A1F2D3DCF2500D30528 /* Frameworks */,
+				AD936A202D3DCF2500D30528 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD936A242D3DCF2500D30528 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				AD936A252D3DCF2500D30528 /* fakescooter-appUITests */,
+			);
+			name = "fakescooter-appUITests";
+			packageProductDependencies = (
+			);
+			productName = "fakescooter-appUITests";
+			productReference = AD936A222D3DCF2500D30528 /* fakescooter-appUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AD936A002D3DCF2400D30528 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					AD936A072D3DCF2400D30528 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					AD936A172D3DCF2500D30528 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = AD936A072D3DCF2400D30528;
+					};
+					AD936A212D3DCF2500D30528 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = AD936A072D3DCF2400D30528;
+					};
+				};
+			};
+			buildConfigurationList = AD936A032D3DCF2400D30528 /* Build configuration list for PBXProject "fakescooter-app" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AD9369FF2D3DCF2400D30528;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = AD936A092D3DCF2400D30528 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AD936A072D3DCF2400D30528 /* fakescooter-app */,
+				AD936A172D3DCF2500D30528 /* fakescooter-appTests */,
+				AD936A212D3DCF2500D30528 /* fakescooter-appUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AD936A062D3DCF2400D30528 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD936A162D3DCF2500D30528 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD936A202D3DCF2500D30528 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AD936A042D3DCF2400D30528 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD936A142D3DCF2500D30528 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD936A1E2D3DCF2500D30528 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AD936A1A2D3DCF2500D30528 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD936A072D3DCF2400D30528 /* fakescooter-app */;
+			targetProxy = AD936A192D3DCF2500D30528 /* PBXContainerItemProxy */;
+		};
+		AD936A242D3DCF2500D30528 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD936A072D3DCF2400D30528 /* fakescooter-app */;
+			targetProxy = AD936A232D3DCF2500D30528 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AD936A2A2D3DCF2500D30528 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AD936A2B2D3DCF2500D30528 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AD936A2D2D3DCF2500D30528 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"fakescooter-app/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wgosling.fakescooter-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AD936A2E2D3DCF2500D30528 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"fakescooter-app/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wgosling.fakescooter-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AD936A302D3DCF2500D30528 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wgosling.fakescooter-appTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fakescooter-app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/fakescooter-app";
+			};
+			name = Debug;
+		};
+		AD936A312D3DCF2500D30528 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wgosling.fakescooter-appTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fakescooter-app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/fakescooter-app";
+			};
+			name = Release;
+		};
+		AD936A332D3DCF2500D30528 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wgosling.fakescooter-appUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "fakescooter-app";
+			};
+			name = Debug;
+		};
+		AD936A342D3DCF2500D30528 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wgosling.fakescooter-appUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "fakescooter-app";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AD936A032D3DCF2400D30528 /* Build configuration list for PBXProject "fakescooter-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD936A2A2D3DCF2500D30528 /* Debug */,
+				AD936A2B2D3DCF2500D30528 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD936A2C2D3DCF2500D30528 /* Build configuration list for PBXNativeTarget "fakescooter-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD936A2D2D3DCF2500D30528 /* Debug */,
+				AD936A2E2D3DCF2500D30528 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD936A2F2D3DCF2500D30528 /* Build configuration list for PBXNativeTarget "fakescooter-appTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD936A302D3DCF2500D30528 /* Debug */,
+				AD936A312D3DCF2500D30528 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD936A322D3DCF2500D30528 /* Build configuration list for PBXNativeTarget "fakescooter-appUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD936A332D3DCF2500D30528 /* Debug */,
+				AD936A342D3DCF2500D30528 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AD936A002D3DCF2400D30528 /* Project object */;
+}
