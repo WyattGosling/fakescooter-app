@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		AD936A362D3DD23B00D30528 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AD936A352D3DD23B00D30528 /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		AD936A192D3DCF2500D30528 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		AD936A082D3DCF2400D30528 /* fakescooter-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fakescooter-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD936A182D3DCF2500D30528 /* fakescooter-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fakescooter-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD936A222D3DCF2500D30528 /* fakescooter-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fakescooter-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD936A352D3DD23B00D30528 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -79,6 +84,7 @@
 				AD936A1B2D3DCF2500D30528 /* fakescooter-appTests */,
 				AD936A252D3DCF2500D30528 /* fakescooter-appUITests */,
 				AD936A092D3DCF2400D30528 /* Products */,
+				AD936A352D3DD23B00D30528 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -212,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD936A362D3DD23B00D30528 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
