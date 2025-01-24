@@ -8,20 +8,17 @@
 import MapKit
 import SwiftUI
 
-struct ContentView: View {
+struct MapView: View {
     var body: some View {
-        VStack {
-            Map() {
-                ForEach(scooters) { scooter in
-                    Annotation("\(scooter.batteryLevel)%", coordinate: scooter.location) {
-                        Image("kick-scooter")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                    }
+        Map() {
+            ForEach(scooters) { scooter in
+                Annotation("\(scooter.batteryLevel)%", coordinate: scooter.location) {
+                    Image("kick-scooter")
+                        .resizable()
+                        .frame(width: 30, height: 30)
                 }
             }
         }
-        .padding()
     }
 
     let userLocation = MapCameraPosition.region(
@@ -39,5 +36,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    MapView()
 }
