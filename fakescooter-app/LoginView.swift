@@ -45,21 +45,20 @@ struct LoginView: View {
         
         loggingIn = true
         
-        let url = URL(string: "http://localhost:8080/user/\(user)")!
+        let url = Config.baseURL.appending(components: "user", user, directoryHint: .notDirectory)
         var request = URLRequest(url: url)
         let base64LoginString = String(format: "%@:%@", user, "pass")
             .data(using: .utf8)!
             .base64EncodedString()
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
-        let task = URLSession.shared.dataTask(with: request) { data, _, _ in
+        let task = URLSession.shared.dataTask(with: request) { data, _, error in
             guard let data = data else {
                 loggingIn = false
-                print("Logging in failed. Do some error handling wyatt")
+                print("Logging in failed: \(String(describing: error))")
                 return
             }
             
             let decoder = JSONDecoder()
-            print(String(decoding: data, as: UTF8.self))
             currentUser = try! decoder.decode(User.self, from: data)
         }
         task.resume()

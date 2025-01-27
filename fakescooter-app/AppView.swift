@@ -9,8 +9,13 @@ import SwiftUI
 
 struct AppView: View {
     var body: some View {
-        if user != nil {
-            MapView()
+        if let scoot = reservation {
+            ReservedView(scooter: scoot)
+        } else if let user = user {
+            MapView(
+                currentUser: .constant(user),
+                reservation: $reservation
+            )
         } else {
             LoginView(currentUser: $user)
                 .frame(
@@ -24,6 +29,7 @@ struct AppView: View {
     }
     
     @State private var user: User? = nil
+    @State private var reservation: Scooter? = nil
 }
 
 #Preview {
