@@ -40,7 +40,7 @@ struct MapView: View {
                     case 20..<45:
                         Image(systemName: "battery.25percent")
                     default:
-                        Image(systemName: "batter.0percent")
+                        Image(systemName: "battery.0percent")
                         
                     }
                 }
