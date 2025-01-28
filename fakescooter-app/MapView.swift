@@ -25,15 +25,22 @@ struct MapView: View {
         .sheet(isPresented: $shouldShowReservationDialog) {
             selectedScooter = nil
             alreadyReserved = false
+            problemRefreshingScooter = false
         } content:{
-            ReservingSheet(
-                alreadyReserved: $alreadyReserved,
-                currentUser: $currentUser,
-                reservation: $reservation,
-                targetScooter: .constant(selectedScooter!)
-            )
-            .padding()
-            .presentationDetents([.fraction(0.20)])
+            if problemRefreshingScooter {
+                ReservingErrorSheet()
+                    .padding()
+                    .presentationDetents([.fraction(0.20)])
+            } else {
+                ReservingSheet(
+                    alreadyReserved: $alreadyReserved,
+                    currentUser: $currentUser,
+                    reservation: $reservation,
+                    targetScooter: .constant(selectedScooter!)
+                )
+                .padding()
+                .presentationDetents([.fraction(0.20)])
+            }
         }
     }
     
@@ -77,11 +84,9 @@ struct MapView: View {
             if let scoot = scoot {
                 if scoot.reserved {
                     alreadyReserved = true
-                } else {
-                    // is there something to do here? probably not
                 }
             } else {
-                // something went wrong...
+                problemRefreshingScooter = true
             }
         }
 
@@ -94,6 +99,7 @@ struct MapView: View {
     @Binding var currentUser: User
     @Binding var reservation: Scooter?
     @State var alreadyReserved: Bool = false
+    @State var problemRefreshingScooter: Bool = false
     @State var shouldShowReservationDialog: Bool = false
     @State var selectedScooter: Scooter? = nil
 }

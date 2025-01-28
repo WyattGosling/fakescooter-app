@@ -97,3 +97,12 @@ struct ReservingSheet: View {
     @Binding var reservation: Scooter?
     @Binding var targetScooter: Scooter
 }
+
+#Preview {
+    ReservingSheet(
+        dismiss: .init(\.dismiss),
+        alreadyReserved: .constant(false),
+        currentUser: .constant(.init(id: "123", name: "demo")),
+        reservation: .constant(nil),
+        targetScooter: .constant(.init(id: "def345", batteryLevel: 89, location: .init(latitude: 1, longitude: 2), reserved: false)))
+}
