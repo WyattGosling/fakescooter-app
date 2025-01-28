@@ -24,6 +24,7 @@ struct MapView: View {
         }
         .sheet(isPresented: $shouldShowReservationDialog) {
             selectedScooter = nil
+            alreadyReserved = false
         } content:{
             VStack {
                 HStack {
@@ -57,12 +58,22 @@ struct MapView: View {
                         Text("30¢/m")
                     }
                 }
-                Button(action: reserve) {
-                    Spacer()
-                    Text("Reserve Now")
-                    Spacer()
+                if alreadyReserved {
+                    Button(action: reserve) {
+                        Spacer()
+                        Text("Already Reserved")
+                        Spacer()
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .disabled(true)
+                } else {
+                    Button(action: reserve) {
+                        Spacer()
+                        Text("Reserve Now")
+                        Spacer()
+                    }
+                    .buttonStyle(.borderedProminent)
                 }
-                .buttonStyle(.borderedProminent)
             }
             .padding()
             .presentationDetents([.fraction(0.20)])
@@ -108,7 +119,7 @@ struct MapView: View {
             
             if let scoot = scoot {
                 if scoot.reserved {
-                    // uh-oh. someone got it first. better not let the user interact with it
+                    alreadyReserved = true
                 } else {
                     // is there something to do here? probably not
                 }
@@ -133,7 +144,6 @@ struct MapView: View {
             components: "scooter", selectedScooter!.id,
             directoryHint: .notDirectory
         )
-        print(url)
         var request = URLRequest(url: url)
         request.httpMethod = "PATCH"
         request.httpBody = try! JSONEncoder().encode(["reserved": true])
@@ -156,6 +166,7 @@ struct MapView: View {
 
     @Binding var currentUser: User
     @Binding var reservation: Scooter?
+    @State var alreadyReserved: Bool = false
     @State var shouldShowReservationDialog: Bool = false
     @State var selectedScooter: Scooter? = nil
 }
