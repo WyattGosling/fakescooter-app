@@ -26,55 +26,12 @@ struct MapView: View {
             selectedScooter = nil
             alreadyReserved = false
         } content:{
-            VStack {
-                HStack {
-                    Text("Scooter")
-                    Spacer()
-                    switch selectedScooter?.batteryLevel ?? 0 {
-                    case 95...100:
-                        Image(systemName: "battery.100percent")
-                    case 70..<95:
-                        Image(systemName: "battery.75percent")
-                    case 45..<70:
-                        Image(systemName: "battery.50percent")
-                    case 20..<45:
-                        Image(systemName: "battery.25percent")
-                    default:
-                        Image(systemName: "battery.0percent")
-                        
-                    }
-                }
-                VStack {
-                    HStack {
-                        Spacer()
-                        Text("30m:")
-                        Text("Free")
-                            .frame(minWidth: 50, maxWidth: 50)
-                            .background(Color.green.opacity(0.2))
-                    }
-                    HStack {
-                        Spacer()
-                        Text("After:")
-                        Text("30¢/m")
-                    }
-                }
-                if alreadyReserved {
-                    Button(action: reserve) {
-                        Spacer()
-                        Text("Already Reserved")
-                        Spacer()
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .disabled(true)
-                } else {
-                    Button(action: reserve) {
-                        Spacer()
-                        Text("Reserve Now")
-                        Spacer()
-                    }
-                    .buttonStyle(.borderedProminent)
-                }
-            }
+            ReservingSheet(
+                alreadyReserved: $alreadyReserved,
+                currentUser: $currentUser,
+                reservation: $reservation,
+                targetScooter: .constant(selectedScooter!)
+            )
             .padding()
             .presentationDetents([.fraction(0.20)])
         }
@@ -132,36 +89,6 @@ struct MapView: View {
         
         selectedScooter = scooter
         shouldShowReservationDialog = true
-    }
-    
-    func reserve() {
-        // Oh hey, it is this code again
-        let base64LoginString = String(format: "%@:%@", currentUser.name, "pas")
-            .data(using: .utf8)!
-            .base64EncodedString()
-        
-        let url = Config.baseURL.appending(
-            components: "scooter", selectedScooter!.id,
-            directoryHint: .notDirectory
-        )
-        var request = URLRequest(url: url)
-        request.httpMethod = "PATCH"
-        request.httpBody = try! JSONEncoder().encode(["reserved": true])
-        request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
-        
-        let task = URLSession.shared.dataTask(with: request) { data, _, error in
-            guard let data else {
-                print("Error reserving scooter: \(String(describing: error))")
-                return
-            }
-
-            let decoder = JSONDecoder()
-            print(String(data: data, encoding: .utf8)!)
-            let scooter = try! decoder.decode(Scooter.self, from: data)
-            shouldShowReservationDialog = false
-            reservation = scooter
-        }
-        task.resume()
     }
 
     @Binding var currentUser: User
