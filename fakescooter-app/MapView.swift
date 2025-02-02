@@ -75,6 +75,7 @@ struct MapView: View {
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
             guard let data = data else {
                 print("request failed: \(String(describing: error))")
+                problemRefreshingScooter = true
                 return
             }
             
