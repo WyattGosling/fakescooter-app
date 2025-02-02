@@ -37,6 +37,17 @@ struct LoginView: View {
                 ProgressView()
                     .colorInvert()
             }
+            if badLogin {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(Color(red: 1, green: 0.88, blue: 0.88))
+                        .stroke(Color.red, lineWidth: 2)
+                        .frame(width: 300, height: 40)
+                    Text("Incorrect username.")
+                        .bold()
+                        .foregroundColor(.red)
+                }
+            }
         }
     }
     
@@ -44,6 +55,7 @@ struct LoginView: View {
         guard !loggingIn else { return }
         
         loggingIn = true
+        badLogin = false
         
         let url = Config.baseURL.appending(components: "user", user, directoryHint: .notDirectory)
         var request = URLRequest(url: url)
@@ -52,8 +64,14 @@ struct LoginView: View {
             .base64EncodedString()
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
+            guard error != nil else {
+                loggingIn = false
+                badLogin = true
+                return
+            }
             guard let data = data else {
                 loggingIn = false
+                badLogin = true
                 print("Logging in failed: \(String(describing: error))")
                 return
             }
@@ -65,8 +83,9 @@ struct LoginView: View {
     }
     
     @Binding var currentUser: User?
-    @State private var username: String = ""
+    @State private var badLogin: Bool = false
     @State private var loggingIn: Bool = false
+    @State private var username: String = ""
     @FocusState private var usernameIsFocused: Bool
 }
 
