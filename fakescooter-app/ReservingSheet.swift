@@ -84,7 +84,6 @@ struct ReservingSheet: View {
             }
 
             let decoder = JSONDecoder()
-            print(String(data: data, encoding: .utf8)!)
             let scooter = try! decoder.decode(Scooter.self, from: data)
             reservation = scooter
             dismiss()
