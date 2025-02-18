@@ -64,7 +64,8 @@ struct LoginView: View {
             .base64EncodedString()
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
-            guard error != nil else {
+            guard error == nil else {
+                print("got login error: \(error!)")
                 loggingIn = false
                 badLogin = true
                 return
