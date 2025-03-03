@@ -93,9 +93,10 @@ struct ReservingSheet: View {
             
             if resp.statusCode != 200 {
                 let errorString = String(data: data, encoding: .utf8) ?? "no data"
-                if errorString == "user \(currentUser.name) already has a scooter reserved" {
+                if errorString == "user \(currentUser.name) already has a scooter reserved\n" {
                     lookupExistingReservation();
                     dismiss()
+                    return
                 }
             }
 
@@ -151,6 +152,8 @@ struct ReservingSheet: View {
             let scooter = try! decoder.decode(Scooter.self, from: data)
             reservation = scooter
         }
+        
+        task.resume()
     }
     
     @Binding var alreadyReserved: Bool
