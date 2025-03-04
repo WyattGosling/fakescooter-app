@@ -58,40 +58,20 @@ struct MapView: View {
     ]
     
     func onScooterTap(_ scooter:  Scooter) {
-        // This should really be put somewhere as it shouldn't in every
-        // handler that needs to do an API request. But where that should
-        // be, I've yet to determine.
-        let base64LoginString = String(format: "%@:%@", currentUser.name, "pass")
-            .data(using: .utf8)!
-            .base64EncodedString()
-        
-        let url = Config.baseURL.appending(
-            components: "scooter", scooter.id,
-            directoryHint: .notDirectory
-        )
-        var request = URLRequest(url: url)
-        request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
-        
-        let task = URLSession.shared.dataTask(with: request) { data, _, error in
-            guard let data = data else {
-                print("request failed: \(String(describing: error))")
-                problemRefreshingScooter = true
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            let scoot = try? decoder.decode(Scooter.self, from: data)
-            
-            if let scoot = scoot {
+        // Check that someone else hasn't tried to reserve the scooter in the
+        // time that we've been deciding which one to choose
+        Api.getScooter(
+            withId: scooter.id,
+            as: currentUser,
+            onSuccess: { scoot in
                 if scoot.reserved {
                     alreadyReserved = true
                 }
-            } else {
+            },
+            onFailure: {
                 problemRefreshingScooter = true
             }
-        }
-
-        task.resume()
+        )
         
         selectedScooter = scooter
         shouldShowReservationDialog = true

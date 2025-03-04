@@ -57,30 +57,17 @@ struct LoginView: View {
         loggingIn = true
         badLogin = false
         
-        let url = Config.baseURL.appending(components: "user", user, directoryHint: .notDirectory)
-        var request = URLRequest(url: url)
-        let base64LoginString = String(format: "%@:%@", user, "pass")
-            .data(using: .utf8)!
-            .base64EncodedString()
-        request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
-        let task = URLSession.shared.dataTask(with: request) { data, _, error in
-            guard error == nil else {
-                print("got login error: \(error!)")
+        Api.getUser(
+            name: user,
+            onSuccess: { user in
+                loggingIn = false
+                currentUser = user
+            },
+            onFailure: {
                 loggingIn = false
                 badLogin = true
-                return
             }
-            guard let data = data else {
-                loggingIn = false
-                badLogin = true
-                print("Logging in failed: \(String(describing: error))")
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            currentUser = try! decoder.decode(User.self, from: data)
-        }
-        task.resume()
+        )
     }
     
     @Binding var currentUser: User?
