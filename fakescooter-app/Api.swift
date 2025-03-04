@@ -20,7 +20,7 @@ struct Api {
         var request = URLRequest(url: url)
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
 
-        let task = URLSession.shared.dataTask(with: request) { data, _, error in
+        let task = URLSession.shared.dataTask(with: request) { data, resp, error in
             guard error == nil else {
                 print("getUser() error: \(error!)")
                 onFailure()
@@ -28,6 +28,17 @@ struct Api {
             }
             guard let data = data else {
                 print("getUser() no data: \(String(describing: error))")
+                onFailure()
+                return
+            }
+            guard let resp = resp as? HTTPURLResponse else {
+                print("getScooter(reservedBy:) cannot cast to HTTPURLResponse")
+                onFailure()
+                return
+            }
+            guard resp.statusCode == 200 else {
+                let responseString = String(data: data, encoding: .utf8) ?? "No data returned"
+                print("getScooter(reservedBy:) status code: \(resp.statusCode), \(responseString)")
                 onFailure()
                 return
             }
@@ -54,7 +65,7 @@ struct Api {
         var request = URLRequest(url: url)
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
         
-        let task = URLSession.shared.dataTask(with: request) { data, _, error in
+        let task = URLSession.shared.dataTask(with: request) { data, resp, error in
             guard error == nil else {
                 print("getScooter() error: \(error!)")
                 onFailure()
@@ -62,6 +73,17 @@ struct Api {
             }
             guard let data = data else {
                 print("getScooter() no data: \(String(describing: error))")
+                onFailure()
+                return
+            }
+            guard let resp = resp as? HTTPURLResponse else {
+                print("getScooter(reservedBy:) cannot cast to HTTPURLResponse")
+                onFailure()
+                return
+            }
+            guard resp.statusCode == 200 else {
+                let responseString = String(data: data, encoding: .utf8) ?? "No data returned"
+                print("getScooter(reservedBy:) status code: \(resp.statusCode), \(responseString)")
                 onFailure()
                 return
             }
@@ -160,7 +182,6 @@ struct Api {
                 print("reserveScooter() cannot cast to HTTPURLResponse")
                 return
             }
-            
             if resp.statusCode != 200 {
                 let errorString = String(data: data, encoding: .utf8) ?? "no data"
                 if errorString == "user \(user.name) already has a scooter reserved\n" {
