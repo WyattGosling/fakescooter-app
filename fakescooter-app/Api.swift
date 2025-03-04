@@ -107,7 +107,7 @@ struct Api {
                 onFailure()
                 return
             }
-            guard resp.statusCode == 200 || resp.statusCode == 201 else {
+            guard resp.statusCode == 200 else {
                 let responseString = String(data: data, encoding: .utf8) ?? "No data returned"
                 print("getScooter(reservedBy:) status code: \(resp.statusCode), \(responseString)")
                 onFailure()
