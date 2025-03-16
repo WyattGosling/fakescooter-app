@@ -106,7 +106,7 @@ struct Api {
         ).appending(queryItems: [
             .init(name: "user", value: user.id)
         ])
-        let base64LoginString = String(format: "%@:%@", user.name, "pas")
+        let base64LoginString = String(format: "%@:%@", user.name, "pass")
             .data(using: .utf8)!
             .base64EncodedString()
 
@@ -159,7 +159,7 @@ struct Api {
             components: "scooter", scooter.id,
             directoryHint: .notDirectory
         )
-        let base64LoginString = String(format: "%@:%@", user.name, "pas")
+        let base64LoginString = String(format: "%@:%@", user.name, "pass")
             .data(using: .utf8)!
             .base64EncodedString()
         
@@ -176,16 +176,21 @@ struct Api {
             }
             guard let data else {
                 print("reserveScooter() no data")
+                onFailure()
                 return
             }
             guard let resp = resp as? HTTPURLResponse else {
                 print("reserveScooter() cannot cast to HTTPURLResponse")
+                onFailure()
                 return
             }
-            if resp.statusCode != 200 {
+            guard resp.statusCode == 200 else {
                 let errorString = String(data: data, encoding: .utf8) ?? "no data"
                 if errorString == "user \(user.name) already has a scooter reserved\n" {
                     onAlreadyReserved()
+                    return
+                } else {
+                    onFailure()
                     return
                 }
             }
@@ -197,6 +202,50 @@ struct Api {
                 onFailure()
             }
         }
+        task.resume()
+    }
+    
+    static func unreserveScooter(_ scooter: Scooter, forUser user: User, onSuccess: @escaping () -> Void, onFailure: @escaping () -> Void) {
+        let url = Config.baseURL.appending(
+            components: "scooter", scooter.id,
+            directoryHint: .notDirectory
+        )
+        
+        let base64LoginString = String(format: "%@:%@", user.name, "pass")
+            .data(using: .utf8)!
+            .base64EncodedString()
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "PATCH"
+        request.httpBody = try! JSONEncoder().encode(["reserved": false])
+        request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, resp, error in
+            guard error == nil else {
+                print("unreserveScooter() error: \(String(describing: error))")
+                onFailure()
+                return
+            }
+            guard let data else {
+                print("unreserveScooter() no data")
+                onFailure()
+                return
+            }
+            guard let resp = resp as? HTTPURLResponse else {
+                print("unreserveScooter() cannot cast to HTTPURLResponse")
+                onFailure()
+                return
+            }
+            guard resp.statusCode == 200 else {
+                let errorString = String(data: data, encoding: .utf8) ?? "no data"
+                print("unreserveScooter() failed with status code \(resp.statusCode):")
+                print(errorString)
+                return
+            }
+            
+            onSuccess()
+        }
+        
         task.resume()
     }
 }

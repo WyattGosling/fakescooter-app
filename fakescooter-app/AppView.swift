@@ -9,8 +9,12 @@ import SwiftUI
 
 struct AppView: View {
     var body: some View {
-        if let scoot = reservation {
-            ReservedView(scooter: scoot)
+        if let scoot = reservation, let user = user {
+            ReservedView(
+                scooter: scoot,
+                user: user,
+                onReservationCancelled: { reservation = nil }
+            )
         } else if let user = user {
             MapView(
                 currentUser: .constant(user),

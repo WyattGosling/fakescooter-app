@@ -20,7 +20,7 @@ struct ReservedView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        print("Button tapped!")
+                        stopReservation()
                     }) {
                         Image(systemName: "stop.circle.fill")
                             .font(.system(size: 48))
@@ -46,7 +46,6 @@ struct ReservedView: View {
                         Text(formattedTime)
                             .font(.system(size: 48, design: nil))
                             .onReceive(timer) {_ in
-                                print("updating timer!")
                                 formattedTime = formatTimeSpan(start: reservedTime, end: Date())
                             }
                     }
@@ -77,18 +76,26 @@ struct ReservedView: View {
         }
     }
     
-    let scooter: Scooter
-    
     func formatTimeSpan(start: Date, end: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "mm:ss"
     
         let components = Calendar.current.dateComponents([.minute, .second], from: start, to: end)
-        print(String(describing: components))
         
         return String(format: "%02d:%02d", components.minute ?? 0, components.second ?? 0)
     }
-
+    
+    func stopReservation() {
+        Api.unreserveScooter(
+            scooter,
+            forUser: user,
+            onSuccess: onReservationCancelled,
+            onFailure: { })
+    }
+    
+    let scooter: Scooter
+    let user: User
+    let onReservationCancelled: () -> Void
     @State private var userLocation = MapCameraPosition.userLocation(
         followsHeading: true,
         fallback: MapCameraPosition.region(
@@ -103,10 +110,13 @@ struct ReservedView: View {
 }
 
 #Preview {
-    ReservedView(scooter: .init(
-        id: "abc123",
-        batteryLevel: 97,
-        location: .init(latitude: -123, longitude: 55),
-        reserved: true)
+    ReservedView(
+        scooter: .init(
+            id: "abc123",
+            batteryLevel: 97,
+            location: .init(latitude: -123, longitude: 55),
+            reserved: true),
+        user: .init(id: "abc123", name: "basic"),
+        onReservationCancelled: { }
     )
 }
