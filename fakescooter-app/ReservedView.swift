@@ -16,6 +16,21 @@ struct ReservedView: View {
                     MapUserLocationButton()
                 }
             VStack {
+                if reservationCancelledError {
+                    // Show a something went wrong box
+                    VStack {
+                        Text("Something went wrong")
+                            .font(.system(size: 24))
+                            .foregroundStyle(.white)
+                        Text("You still have the scooter reserved.")
+                            .foregroundStyle(.white)
+                    }
+                    .padding()
+                    .background(.red)
+                    .clipShape(RoundedRectangle(cornerRadius: 8.0))
+                    .shadow(radius: 4.0)
+                    .padding()
+                }
                 Spacer()
                 HStack {
                     Spacer()
@@ -96,6 +111,7 @@ struct ReservedView: View {
     let scooter: Scooter
     let user: User
     let onReservationCancelled: () -> Void
+    let reservationCancelledError: Bool = false
     @State private var userLocation = MapCameraPosition.userLocation(
         followsHeading: true,
         fallback: MapCameraPosition.region(
