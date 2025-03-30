@@ -10,13 +10,23 @@ struct Scooter: Codable, Identifiable {
     let id: String
     let batteryLevel: Int
     let location: CLLocationCoordinate2D
-    let reserved: Bool
+    let reservation: Reservation
     
     enum CodingKeys: String, CodingKey {
         case id
         case batteryLevel = "battery"
         case location
-        case reserved
+        case reservation
+    }
+}
+
+struct Reservation: Codable {
+    let active: Bool
+    let startTime: Date?
+    
+    enum CodingKeys: String, CodingKey {
+        case active
+        case startTime = "start_time"
     }
 }
 

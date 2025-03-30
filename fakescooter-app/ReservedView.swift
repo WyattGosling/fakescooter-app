@@ -131,7 +131,7 @@ struct ReservedView: View {
             id: "abc123",
             batteryLevel: 97,
             location: .init(latitude: -123, longitude: 55),
-            reserved: true),
+            reservation: .init(active: true, startTime: Date())),
         user: .init(id: "abc123", name: "basic"),
         onReservationCancelled: { }
     )

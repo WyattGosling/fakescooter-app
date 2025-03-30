@@ -51,10 +51,10 @@ struct MapView: View {
         )
     )
     let scooters: [Scooter] = [
-        .init(id: "abc123", batteryLevel: 99, location: .init(latitude: 49.26227, longitude: -123.14242), reserved: false),
-        .init(id: "def456", batteryLevel: 88, location: .init(latitude: 49.26636, longitude: -123.14226), reserved: false),
-        .init(id: "ghi789", batteryLevel: 77, location: .init(latitude: 49.26532, longitude: -123.13659), reserved: false),
-        .init(id: "jkl012", batteryLevel: 9, location: .init(latitude: 49.26443, longitude: -123.13469), reserved: false)
+        .init(id: "abc123", batteryLevel: 99, location: .init(latitude: 49.26227, longitude: -123.14242), reservation: .init(active: false, startTime: nil)),
+        .init(id: "def456", batteryLevel: 88, location: .init(latitude: 49.26636, longitude: -123.14226), reservation: .init(active: false, startTime: nil)),
+        .init(id: "ghi789", batteryLevel: 77, location: .init(latitude: 49.26532, longitude: -123.13659), reservation: .init(active: false, startTime: nil)),
+        .init(id: "jkl012", batteryLevel: 9, location: .init(latitude: 49.26443, longitude: -123.13469), reservation: .init(active: true, startTime: Date())),
     ]
     
     func onScooterTap(_ scooter:  Scooter) {
@@ -64,7 +64,7 @@ struct MapView: View {
             withId: scooter.id,
             as: currentUser,
             onSuccess: { scoot in
-                if scoot.reserved {
+                if scoot.reservation.active {
                     alreadyReserved = true
                 }
             },

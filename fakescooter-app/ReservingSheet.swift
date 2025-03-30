@@ -95,5 +95,11 @@ struct ReservingSheet: View {
         alreadyReserved: .constant(false),
         currentUser: .constant(.init(id: "123", name: "demo")),
         reservation: .constant(nil),
-        targetScooter: .constant(.init(id: "def345", batteryLevel: 89, location: .init(latitude: 1, longitude: 2), reserved: false)))
+        targetScooter: .constant(.init(
+            id: "def345",
+            batteryLevel: 89,
+            location: .init(latitude: 1, longitude: 2),
+            reservation: .init(active: false, startTime: nil)
+        ))
+    )
 }
