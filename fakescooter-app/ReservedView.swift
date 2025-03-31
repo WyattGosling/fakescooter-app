@@ -61,7 +61,7 @@ struct ReservedView: View {
                         Text(formattedTime)
                             .font(.system(size: 48, design: nil))
                             .onReceive(timer) {_ in
-                                formattedTime = formatTimeSpan(start: reservedTime, end: Date())
+                                formattedTime = formatTimeSpan(start: scooter.reservation.startTime!, end: Date())
                             }
                     }
                     Spacer()
@@ -92,11 +92,7 @@ struct ReservedView: View {
     }
     
     func formatTimeSpan(start: Date, end: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "mm:ss"
-    
         let components = Calendar.current.dateComponents([.minute, .second], from: start, to: end)
-        
         return String(format: "%02d:%02d", components.minute ?? 0, components.second ?? 0)
     }
     
@@ -121,7 +117,6 @@ struct ReservedView: View {
         )
     )
     @State private var formattedTime: String = "00:00"
-    private let reservedTime = Date()
     private let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
 }
 

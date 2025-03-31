@@ -44,6 +44,7 @@ struct Api {
             }
             
             let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .secondsSince1970
             if let user = try? decoder.decode(User.self, from: data) {
                 onSuccess(user)
             } else {
@@ -89,6 +90,7 @@ struct Api {
             }
             
             let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .secondsSince1970
             if let scoot = try? decoder.decode(Scooter.self, from: data) {
                 onSuccess(scoot)
             } else {
@@ -137,6 +139,7 @@ struct Api {
             }
             
             let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .secondsSince1970
             if let scooters = try? decoder.decode([Scooter].self, from: data) {
                 print("outputting scooters: \(scooters)")
                 onSuccess(scooters[0])
@@ -196,6 +199,7 @@ struct Api {
             }
 
             let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .secondsSince1970
             if let scooter = try? decoder.decode(Scooter.self, from: data) {
                 onSuccess(scooter)
             } else {
