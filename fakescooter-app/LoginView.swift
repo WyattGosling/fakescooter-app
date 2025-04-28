@@ -60,8 +60,21 @@ struct LoginView: View {
         Api.getUser(
             name: user,
             onSuccess: { user in
-                loggingIn = false
-                currentUser = user
+                print("found user is \(user)")
+                Api.getScooter(
+                    reservedBy: user,
+                    onSuccess: { scooter in
+                        print("found scooter is \(scooter)")
+                        foundScooter = scooter
+                        foundUser = user
+                        loggingIn = false
+                    },
+                    onFailure: {
+                        print("no scooter found")
+                        foundUser = user
+                        loggingIn = false
+                    }
+                )
             },
             onFailure: {
                 loggingIn = false
@@ -70,7 +83,8 @@ struct LoginView: View {
         )
     }
     
-    @Binding var currentUser: User?
+    @Binding var foundUser: User?
+    @Binding var foundScooter: Scooter?
     @State private var badLogin: Bool = false
     @State private var loggingIn: Bool = false
     @State private var username: String = ""
@@ -78,7 +92,7 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView(currentUser: .constant(nil))
+    LoginView(foundUser: .constant(nil), foundScooter: .constant(nil))
         .frame(
             minWidth: 0,
             maxWidth: .infinity,

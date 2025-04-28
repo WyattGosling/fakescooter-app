@@ -21,7 +21,7 @@ struct AppView: View {
                 reservation: $reservation
             )
         } else {
-            LoginView(currentUser: $user)
+            LoginView(foundUser: $user, foundScooter: $reservation)
                 .frame(
                     minWidth: 0,
                     maxWidth: .infinity,
