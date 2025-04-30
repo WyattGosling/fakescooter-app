@@ -60,17 +60,14 @@ struct LoginView: View {
         Api.getUser(
             name: user,
             onSuccess: { user in
-                print("found user is \(user)")
                 Api.getScooter(
                     reservedBy: user,
                     onSuccess: { scooter in
-                        print("found scooter is \(scooter)")
                         foundScooter = scooter
                         foundUser = user
                         loggingIn = false
                     },
                     onFailure: {
-                        print("no scooter found")
                         foundUser = user
                         loggingIn = false
                     }
