@@ -9,43 +9,60 @@ import SwiftUI
 
 struct LoginView: View {
     var body: some View {
-        VStack {
-            Text("Fakescooter")
-                .font(.largeTitle.smallCaps())
-                .fontWeight(.bold)
-                .colorInvert()
-            Image("kick-scooter")
-                .resizable()
-                .frame(width: 120, height: 120)
-                .colorInvert()
-            TextField("username", text: $username)
-                .focused($usernameIsFocused)
-                .onAppear() {
-                    usernameIsFocused = true
-                }
-                .onSubmit {
-                    login(as: username)
-                }
-                .textInputAutocapitalization(.never)
-                .multilineTextAlignment(.center)
-                .disableAutocorrection(true)
-                .background(Color.white)
-                .border(.primary)
-                .font(.largeTitle)
-                .padding()
-            if loggingIn {
-                ProgressView()
+        ZStack {
+            Image("background-blue")
+            VStack {
+                Text("Fakescooter")
+                    .font(.largeTitle.smallCaps())
+                    .fontWeight(.bold)
                     .colorInvert()
-            }
-            if badLogin {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(Color(red: 1, green: 0.88, blue: 0.88))
-                        .stroke(Color.red, lineWidth: 2)
-                        .frame(width: 300, height: 40)
-                    Text("Incorrect username.")
-                        .bold()
-                        .foregroundColor(.red)
+                Image("kick-scooter")
+                    .resizable()
+                    .frame(width: 120, height: 120)
+                    .colorInvert()
+                TextField("username", text: $username)
+                    .focused($usernameIsFocused)
+                    .onAppear() {
+                        usernameIsFocused = true
+                    }
+                    .onSubmit {
+                        usernameIsFocused = false
+                        passwordIsFocused = true
+                    }
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
+                    .padding(.horizontal)
+                    .background(Color.white.opacity(0.5))
+                    .cornerRadius(8)
+                    .font(.largeTitle)
+                    .padding(.vertical, 4)
+                    .padding(.horizontal, 410)
+                SecureField("password", text: $password)
+                    .focused($passwordIsFocused)
+                    .onSubmit {
+                        login(as: username)
+                    }
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
+                    .padding(.horizontal)
+                    .background(Color.white.opacity(0.5))
+                    .cornerRadius(8)
+                    .font(.largeTitle)
+                    .padding(.horizontal, 410)
+                    .padding(.bottom, 16)
+                if loggingIn {
+                    ProgressView()
+                }
+                if badLogin {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 8)
+                            .fill(Color(red: 1, green: 0.88, blue: 0.88))
+                            .stroke(Color.red, lineWidth: 2)
+                            .frame(width: 300, height: 40)
+                        Text("Incorrect username.")
+                            .bold()
+                            .foregroundColor(.red)
+                    }
                 }
             }
         }
@@ -85,7 +102,9 @@ struct LoginView: View {
     @State private var badLogin: Bool = false
     @State private var loggingIn: Bool = false
     @State private var username: String = ""
+    @State private var password: String = ""
     @FocusState private var usernameIsFocused: Bool
+    @FocusState private var passwordIsFocused: Bool
 }
 
 #Preview {
@@ -96,5 +115,4 @@ struct LoginView: View {
             minHeight: 0,
             maxHeight: .infinity
         )
-        .background(Color.blue)
 }

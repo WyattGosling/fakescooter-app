@@ -28,7 +28,6 @@ struct AppView: View {
                     minHeight: 0,
                     maxHeight: .infinity
                 )
-                .background(Color.blue)
         }
     }
     
